@@ -1,0 +1,1 @@
+This is the repository for the first l47_alpha_blog app of the complete developer course.

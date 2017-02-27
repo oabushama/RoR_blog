@@ -1,0 +1,77 @@
+<%= render "shared/errors", obj: @user %>
+<!--
+  <form class="form-horizontal">
+  
+    <div class="form-group">
+    
+      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+      
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+      </div> 
+      
+    </div>
+    
+  </form> -->
+  
+<!--This code is from bootstrap. I will make it work with this _form.html.erb page-->
+
+<div class="row"><!--What is the class row for is it bootstrap?-->
+  
+  <div class="col-xs-12">
+
+    <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %><!--What is an authenticity token?-->
+      
+      <div class="form-group">
+        
+        <div class="control-label col-sm-2">
+          <%= f.label :username %>
+        </div>  
+        
+        <div class="col-sm-8">
+          <%= f.text_field :username, class: "form-control", placeholder: "Enter username", autofocus: true %>
+        </div>
+      
+      </div>
+      
+        <div class="form-group">
+          
+          <div class="control-label col-sm-2">
+            <%= f.label :email %>
+          </div>
+          
+          <div class="col-sm-8">
+            <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+          </div>
+          
+        </div>
+        
+        <div class="form-group">
+          
+          <div class="control-label col-sm-2">
+            <%= f.label :password %>
+          </div>
+          
+          <div class="col-sm-8">
+            <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+          </div>
+          
+        </div>
+  
+        <div class="form-group">
+
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg') %>
+          </div>
+          
+        </div>
+        
+    <% end %>
+    
+    <div class="col-xs-4 col-xs-offset-4">
+      [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+    </div>
+    
+  </div>
+
+</div>
